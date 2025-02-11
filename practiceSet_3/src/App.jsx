@@ -2,27 +2,46 @@
 
 import React, { useState } from "react";
 // import { FaLongArrowAltRight } from "react-icons/fa";
+import Navbar from "./navbar/navbar";
 import Card from "./card/card"
-const data = [
-  {url: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Shruti", profession: "Software Engineer", discription: "Software engineers apply programming languages to build software solutions for end users.", friends: false},
-  {url: "https://images.unsplash.com/photo-1714976327275-15f214514cc2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Aaravi ", profession: "Software Developer", discription: "She builds innovative web applications and enjoys solving complex coding challenges.", friends: false},
-  {url: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzUwfHxwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D", name: "Saanvi ", profession: "UX Designer", discription: "She crafts user-friendly designs to enhance digital experiences and improve accessibility.", friends: false},
-  {url: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Meera", profession: "Data Scientist", discription: "She analyzes big data to uncover trends and help businesses make data-driven decisions.", friends: false},
+// const data = [
+//   {url: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Shruti", profession: "Software Engineer", discription: "Software engineers apply programming languages to build software solutions for end users.", friends: false},
+//   {url: "https://images.unsplash.com/photo-1714976327275-15f214514cc2?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Aaravi ", profession: "Software Developer", discription: "She builds innovative web applications and enjoys solving complex coding challenges.", friends: false},
+//   {url: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzUwfHxwb3J0cmFpdHxlbnwwfHwwfHx8MA%3D%3D", name: "Saanvi ", profession: "UX Designer", discription: "She crafts user-friendly designs to enhance digital experiences and improve accessibility.", friends: false},
+//   {url: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", name: "Meera", profession: "Data Scientist", discription: "She analyzes big data to uncover trends and help businesses make data-driven decisions.", friends: false},
+// ]
+
+
+
+const Data = [
+  {url: "https://images.unsplash.com/photo-1738830656378-c8f96e01ec50?q=80&w=1802&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", songName: "Blinding Lights", name: "The Weeknd", added: false},
+  {url: "https://images.unsplash.com/photo-1738831920727-73e17adc5b87?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", songName: "Shape of You", name: "Ed Sheeran", added: false},
+  {url: "https://images.unsplash.com/photo-1737543456099-9e88da04eaef?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", songName: "Levitating", name: "Dua Lipa", added: false},
+  {url: "https://images.unsplash.com/photo-1738463783712-131ad5b53dc9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", songName: "Good 4 U", name: "Olivia Rodrigo", added: false},
+  {url: "https://images.unsplash.com/photo-1738168246881-40f35f8aba0a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzOHx8fGVufDB8fHx8fA%3D%3D", songName: "Someone Like You", name: "Adele", added: false},
 ]
 
 
 
-
 function App() {
-  const [realData, setreatData] = useState(data);
+  const [songData, setSongData] = useState(Data)
+  const handleClick = (index) => {
+    setSongData((prev) => {
+      return prev.map((item, itemIndex) => {
+        if(index == itemIndex) return {...item, added: !item.added}
+        return item
+      })
+    })
+  }
+//   const [realData, setreatData] = useState(data);
 
- const handleFriendsButton = (cardIndex) => {
-  setreatData((prev) => 
-    prev.map((item, index) => 
-      index === cardIndex ? { ...item, friends: !item.friends } : item
-    )
-  );
-};
+//  const handleFriendsButton = (cardIndex) => {
+//   setreatData((prev) => 
+//     prev.map((item, index) => 
+//       index === cardIndex ? { ...item, friends: !item.friends } : item
+//     )
+//   );
+// };
 
   // const [val, setVal] = useState([1, 2, 3, 4, 5]);
   // const [num, setNum] = useState(val[val.length-1])
@@ -73,10 +92,21 @@ function App() {
     //   </div>
     // </div>
 
-    <div className="flex justify-center items-center gap-4 flex-wrap min-h-screen bg-gray-100 p-10">
-      {realData.map((item, index) =>(
-        <Card key = {index} cardIndex = {index} values = {item} friendsButton = {handleFriendsButton}/>
-      ))}
+    // <div className="flex justify-center items-center gap-4 flex-wrap min-h-screen bg-gray-100 p-10">
+    //   {realData.map((item, index) =>(
+    //     <Card key = {index} cardIndex = {index} values = {item} friendsButton = {handleFriendsButton}/>
+    //   ))}
+    // </div>
+
+    <div className="w-full h-screen bg-zinc-300">
+      <div className="w-full h-[10%]">
+        <Navbar songData={songData} />
+      </div>
+      <div className="w-full h-[90%] flex gap-3 justify-center items-center flex-wrap">
+        {songData.map((obj, index) => (
+          <Card key={index} data={obj} handleClick={handleClick} index={index} />
+        ))}
+      </div>
     </div>
   );
 }
