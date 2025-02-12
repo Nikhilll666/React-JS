@@ -1,0 +1,11 @@
+useRef:
+
+is tarike mein hum har input ko select kar lete h and unki value tab nikalte h jab form summit hota h 
+useRef kisi bhi html input ko select kar skte h 
+
+controlled components :
+
+aap jab bhi kuch likho useState ke through data real time per update kar de 
+mean jaise hi kuch type ho set kar do nyi value ke barabar
+
+react hook form 
